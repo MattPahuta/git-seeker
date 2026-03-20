@@ -1,9 +1,10 @@
 import { useState } from "react";
+import SearchBar from "./components/SearchBar";
+
 const GITHUB_API = "https://api.github.com";
 
 function App() {
   // core state variables
-  const [query, setQuery] = useState("");
   const [user, setUser] = useState(null);
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -11,8 +12,6 @@ function App() {
 
   // core API logic
   async function handleSearch(username) {
-    // return if field is empty
-    if (!username.trim()) return;
     // reset state before new search
     setLoading(true);
     setError(null);
@@ -48,27 +47,12 @@ function App() {
   console.log({ user, repos, loading, error});
 
   return (
-    <div className="min-h-screen px-4 py-10 text-slate-900 bg-gray-50 dark:bg-slate-800 dark:text-zinc-100">
+    <div className="min-h-screen px-4 py-10 text-slate-900 bg-gray-50 dark:bg-slate-900 dark:text-zinc-100">
+      <header>
+        <h1 className="mb-8 text-center text-3xl font-bold tracking-tight">GitSeeker</h1>
+      </header>
       <main className="mx-auto max-w-3xl">
-        <h1 className="mb-8 text-center text-3xl font-bold tracking-tight">GitSeeker | GitHub User Search</h1>
-
-        <form 
-          onSubmit={(e) => {
-            e.preventDefault();
-            handleSearch(query);
-          }}
-          className="mb-6 flex gap-3"
-        >
-          <input 
-            type="text" 
-            value={query} 
-            onChange={(e) => setQuery(e.target.value)} placeholder="Enter a GitHub username..."
-            className="flex-1 rounded-lg border border-gray-300 px-4 py-2"
-          />
-          <button type="submit" disabled={loading} className="rounded-lg px-5 py-2 disabled:opacity-50 dark:bg-slate-700 dark:text-zinc-50">
-            {loading ? "Searching..." : "Search"}
-          </button>
-        </form>
+        <SearchBar onSearch={handleSearch} loading={loading} />
 
         {error && (
           <p role="alert" className="mb-4 text-sm text-red-600">
