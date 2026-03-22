@@ -28,6 +28,10 @@ function SearchBar({ onSearch, loading }) {
           type="text" 
           value={inputValue} 
           disabled={loading}
+          autoComplete="off"
+          autoCorrect="off"
+          autoCapitalize="off"
+          spellCheck="false"
           onChange={(e) => setInputValue(e.target.value)} 
           placeholder="Enter a GitHub username..."
           className="px-4 py-2 flex-1 text-base rounded-md placeholder:text-gray-400 placeholder:italic bg-white dark:bg-gray-700 outline-1 -outline-offset-1 outline-slate-700 focus-visible:outline-2 focus-visible:-outline-offset-2 focus:outline-indigo-600"

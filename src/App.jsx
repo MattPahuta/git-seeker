@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SearchBar from "./components/SearchBar";
+import UserProfile from "./components/UserProfile";
 
 const GITHUB_API = "https://api.github.com";
 
@@ -53,13 +54,14 @@ function App() {
       </header>
       <main className="mx-auto max-w-3xl">
         <SearchBar onSearch={handleSearch} loading={loading} />
-
         {error && (
           <p role="alert" className="mb-4 text-sm text-red-600">
             {error}
           </p>
         )}
 
+
+        <UserProfile />
         {user && (
           <pre className="overflow-auto rounded-lg bg-gray-100 p-4">
             {JSON.stringify({ user, repos}, null, 2)}
