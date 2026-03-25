@@ -48,9 +48,9 @@ function App() {
   console.log({ user, repos, loading, error});
 
   return (
-    <div className="min-h-screen px-4 py-10 text-slate-900 bg-gray-50 dark:bg-slate-900 dark:text-zinc-100">
+    <div className="min-h-screen px-4 py-10 text-zinc-900 bg-gray-50 dark:bg-zinc-900 dark:text-zinc-100">
       <header>
-        <h1 className="mb-8 text-center text-3xl font-bold tracking-tight">GitSeeker</h1>
+        <h1 className="mb-8 text-center text-3xl font-bold tracking-tight text-zinc-900 dark:text-indigo-200">GitSeeker</h1>
       </header>
       <main className="mx-auto max-w-3xl">
         <SearchBar onSearch={handleSearch} loading={loading} />
