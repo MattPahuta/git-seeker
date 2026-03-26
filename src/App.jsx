@@ -63,7 +63,7 @@ function App() {
 
         <UserProfile user={user} loading={loading} error={error} />
         {user && (
-          <pre className="overflow-auto rounded-lg bg-gray-100 p-4">
+          <pre className="overflow-auto rounded-lg p-4">
             {JSON.stringify({ user, repos}, null, 2)}
           </pre>
         )}
