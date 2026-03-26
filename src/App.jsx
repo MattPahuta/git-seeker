@@ -48,9 +48,9 @@ function App() {
   console.log({ user, repos, loading, error});
 
   return (
-    <div className="min-h-screen px-4 py-10 text-zinc-900 bg-gray-50 dark:bg-zinc-900 dark:text-zinc-100">
-      <header>
-        <h1 className="mb-8 text-center text-3xl font-bold tracking-tight text-zinc-900 dark:text-indigo-200">GitSeeker</h1>
+    <div className="min-h-screen px-4 font-mono text-zinc-900 bg-gray-50 dark:bg-zinc-900 dark:text-zinc-100">
+      <header className="py-10">
+        <h1 className="text-center text-3xl font-bold tracking-tight text-zinc-900 dark:text-indigo-200">GitSeeker</h1>
       </header>
       <main className="mx-auto max-w-3xl">
         <SearchBar onSearch={handleSearch} loading={loading} />
@@ -61,7 +61,7 @@ function App() {
         )}
 
 
-        <UserProfile />
+        <UserProfile user={user} loading={loading} error={error} />
         {user && (
           <pre className="overflow-auto rounded-lg bg-gray-100 p-4">
             {JSON.stringify({ user, repos}, null, 2)}
