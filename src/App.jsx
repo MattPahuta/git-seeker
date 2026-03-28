@@ -1,6 +1,8 @@
 import { useState } from "react";
+import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import UserProfile from "./components/UserProfile";
+import RepoGrid from "./components/RepoGrid";
 
 const GITHUB_API = "https://api.github.com";
 
@@ -45,29 +47,27 @@ function App() {
 
   }
 
-  console.log({ user, repos, loading, error});
+  // console.log({ user, repos, loading, error});
+  //   {
+  //     user && (
+  //       <pre className="overflow-auto rounded-lg p-4">
+  //         {JSON.stringify({ user, repos }, null, 2)}
+  //       </pre>
+  //     );
+  //   }
 
   return (
-    <div className="min-h-screen px-4 font-mono text-zinc-900 bg-gray-50 dark:bg-zinc-900 dark:text-zinc-100">
-      <header className="py-10">
-        <h1 className="text-center text-3xl font-bold tracking-tight text-zinc-900 dark:text-indigo-200">GitSeeker</h1>
-      </header>
-      <main className="mx-auto max-w-3xl">
+    <div className="min-h-screen px-4 text-zinc-900 bg-gray-50 dark:bg-zinc-900 dark:text-zinc-100">
+      <Header />
+      <main className="mx-auto max-w-3xl space-y-8">
         <SearchBar onSearch={handleSearch} loading={loading} />
         {error && (
           <p role="alert" className="mb-4 text-sm text-red-600">
             {error}
           </p>
         )}
-
-
         <UserProfile user={user} loading={loading} error={error} />
-        {user && (
-          <pre className="overflow-auto rounded-lg p-4">
-            {JSON.stringify({ user, repos}, null, 2)}
-          </pre>
-        )}
-
+        <RepoGrid repos={repos} loading={loading} />
       </main>
     </div>
   )

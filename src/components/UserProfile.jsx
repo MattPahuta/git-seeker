@@ -83,7 +83,7 @@ function UserProfile({ user, loading, error }) {
           <h2 className="mb-2 text-3xl sm:text-4xl font-semibold text-zinc-50">
             {user.name || user.login}
           </h2>
-          <p className="text-lg text-indigo-400">@{user.login}</p>
+          <p className="text-lg font-mono text-indigo-400">@{user.login}</p>
           <p className="text-gray-600 dark:text-slate-300">
             Joined{" "}
             <time datetime={user.created_at}>

@@ -20,7 +20,7 @@ function SearchBar({ onSearch, loading }) {
     <section role="search">
       <form
         onSubmit={handleSubmit}
-        className="mb-6 flex flex-col sm:flex-row gap-3">
+        className="flex flex-col sm:flex-row gap-3">
         <label htmlFor="username-input" className="sr-only">
           GitHub Username
         </label>
