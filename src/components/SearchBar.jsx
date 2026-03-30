@@ -35,12 +35,12 @@ function SearchBar({ onSearch, loading }) {
           spellCheck="false"
           onChange={(e) => setInputValue(e.target.value)}
           placeholder="Enter a GitHub username..."
-          className="px-4 py-2 flex-1 text-base rounded-md placeholder:text-gray-400 placeholder:italic bg-white dark:bg-zinc-800 outline-1 -outline-offset-1 outline-zinc-700 focus-visible:outline-2 focus-visible:-outline-offset-2 focus:outline-indigo-600"
+          className="px-4 py-2 flex-1 text-base rounded-md placeholder:text-gray-400 placeholder:italic bg-white dark:bg-zinc-800 outline-1 -outline-offset-1 outline-slate-400 dark:outline-zinc-700 focus-visible:outline-2 focus-visible:-outline-offset-2 focus:outline-indigo-600"
         />
         <button
           type="submit"
           disabled={loading}
-          className="rounded-md px-4 py-2 text-lg font-medium inline-flex items-center justify-center gap-3 disabled:opacity-50 dark:bg-indigo-600 dark:text-zinc-50 hover:cursor-pointer disabled:cursor-not-allowed hover:bg-indigo-700 active:bg-indigo-900 focus-visible:ring-2 dark:focus-visible:ring-zinc-50 focus:outline-none transition">
+          className="rounded-md px-3 py-2 font-medium shadow-xs inline-flex items-center justify-center gap-3 disabled:opacity-50 bg-indigo-600 text-zinc-50 hover:cursor-pointer disabled:cursor-not-allowed hover:bg-indigo-700 active:bg-indigo-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:focus-visible:outline-zinc-50 transition">
           {loading ? (
             "Searching..."
           ) : (
