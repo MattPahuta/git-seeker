@@ -17,6 +17,7 @@ export function formatDate(isoString) {
 // Format numbers from GitHub to strings for consistency
 export function formatCount(num) {
   if (typeof num !== "number") return "0";
+  if (num >= 1000) return (num /1000).toFixed(1) + "k";
   return String(num);
 }
 

@@ -1,7 +1,30 @@
-import { FiCode, FiGitBranch, FiGitCommit, FiStar } from "react-icons/fi";
-import { formatDate } from "../utils/formatters";
+import {
+  FiGitBranch,
+  FiGitCommit,
+  FiStar,
+} from "react-icons/fi";
+import { formatDate, formatCount } from "../utils/formatters";
+
+const LANGUAGE_COLORS = {
+  JavaScript: "bg-yellow-100",
+  TypeScript: "bg-blue-100",
+  Python: "bg-green-100",
+  Rust: "bg-orange-100",
+  Go: "bg-cyan-100",
+  HTML: "bg-red-100",
+  CSS: "bg-purple-100",
+  Java: "bg-amber-100",
+  Ruby: "bg-rose-100",
+  "C#": "bg-indigo-100",
+  "C++": "bg-pink-100",
+  Shell: "bg-lime-100",
+};
+
+const DEFAULT_LANGUAGE_COLOR = "bg-gray-100";
 
 function RepoCard({ repo }) {
+  const languageColor = LANGUAGE_COLORS[repo.language] ?? DEFAULT_LANGUAGE_COLOR;
+
   return (
     <article className="p-5 space-y-2 flex flex-col gap-3 rounded-lg border border-zinc-700 bg-white dark:text-gray-300 dark:bg-zinc-800 shadow-md hover:scale-105 hover:border-indigo-500 hover:shadow-lg transition duration-300">
       <div className="">
@@ -21,41 +44,41 @@ function RepoCard({ repo }) {
         </p>
       </div>
       <footer className="mt-auto text-sm flex items-center justify-between gap-2 5">
-        {/* language */}
-        {repo.language ? (
-          <span className="flex items-center gap-2">
-            <FiCode
+        <p className="w-full leading-0.5 flex gap-4 items-center justify-start">
+          {/* language */}
+          {repo.language ? (
+            <span className="flex items-center gap-1">
+              <span
+                aria-hidden="true"
+                className={`inline-block size-3 rounded-full ${languageColor}`}></span>
+              <span>{repo.language}</span>
+            </span>
+          ) : (
+            <span className="text-gray-400 italic">No language</span>
+          )}
+          {/* star count */}
+          <span className="flex items-center gap-1">
+            <FiStar
               aria-hidden="true"
               focusable="false"
               className="text-indigo-400"
             />
-            <span>{repo.language}</span>
+            <span>{formatCount(repo.stargazers_count)}</span>
           </span>
-        ) : (
-          <span className="text-gray-400 italic">No language</span>
-        )}
-        {/* star count */}
-        <span className="flex items-center gap-2">
-          <FiStar
-            aria-hidden="true"
-            focusable="false"
-            className="text-indigo-400"
-          />
-          <span>{repo.stargazers_count}</span>
-        </span>
-        {/* latest commit date */}
-        <span
-          className="flex items-center gap-2"
-          title="Lastest commit">
-          <FiGitCommit
-            aria-hidden="true"
-            focusable="false"
-            className="text-indigo-400"
-          />
-          <time dateTime={repo.pushed_at}>
-            {formatDate(repo.pushed_at)}
-          </time>
-        </span>
+          {/* latest commit date */}
+          <span
+            className="flex items-center gap-1"
+            title="Lastest commit">
+            <FiGitCommit
+              aria-hidden="true"
+              focusable="false"
+              className="text-indigo-400"
+            />
+            <time dateTime={repo.pushed_at}>
+              {formatDate(repo.pushed_at)}
+            </time>
+          </span>
+        </p>
       </footer>
     </article>
   );
