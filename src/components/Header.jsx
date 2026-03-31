@@ -15,7 +15,7 @@ function Header({ isDark, onToggle }) {
           aria-label={
             isDark ? "Switch to light mode" : "Switch to dark mode"
           }
-          className="rounded-lg border border-gray-200 bg-gray-50 p-2 text-gray-600 transition hover:bg-gray-100 hover:text-gray-900 dark:border-zinc-700 dark:bg-transparent dark:text-gray-300 dark:hover:bg-zinc-700 dark:hover:text-white hover:cursor-pointer focus-visible:outline-2 focus-visible:outline-indigo-600">
+          className="rounded-lg border border-gray-300 bg-indigo-50 p-2 text-gray-600 transition hover:bg-indigo-100 hover:border-indigo-100 hover:text-gray-900 dark:border-zinc-700 dark:bg-transparent dark:text-gray-300 dark:hover:bg-zinc-700 dark:hover:border-zinc-700 dark:hover:text-white hover:cursor-pointer focus-visible:outline-2 focus-visible:outline-indigo-600">
           {isDark ? (
             <FiSun
               className="size-5"

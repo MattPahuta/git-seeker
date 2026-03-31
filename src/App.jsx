@@ -74,7 +74,7 @@ function App() {
   //   }
 
   return (
-    <div className="min-h-screen text-zinc-900 bg-gray-50 dark:bg-zinc-900 dark:text-zinc-100">
+    <div className="min-h-screen text-zinc-900 bg-indigo-50 dark:bg-zinc-900 dark:text-zinc-100">
       <Header isDark={isDark} onToggle={handleThemeToggle} />
       <main className="mx-auto max-w-3xl py-10 px-4 space-y-8">
         <SearchBar onSearch={handleSearch} loading={loading} />

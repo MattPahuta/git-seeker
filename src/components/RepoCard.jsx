@@ -6,18 +6,19 @@ import {
 import { formatDate, formatCount } from "../utils/formatters";
 
 const LANGUAGE_COLORS = {
-  JavaScript: "bg-yellow-100",
-  TypeScript: "bg-blue-100",
-  Python: "bg-green-100",
-  Rust: "bg-orange-100",
-  Go: "bg-cyan-100",
-  HTML: "bg-red-100",
-  CSS: "bg-purple-100",
-  Java: "bg-amber-100",
-  Ruby: "bg-rose-100",
-  "C#": "bg-indigo-100",
-  "C++": "bg-pink-100",
-  Shell: "bg-lime-100",
+  JavaScript: "bg-yellow-300",
+  TypeScript: "bg-blue-400",
+  Python: "bg-green-400",
+  Rust: "bg-orange-400",
+  Go: "bg-cyan-400",
+  HTML: "bg-orange-600",
+  CSS: "bg-purple-800",
+  Java: "bg-amber-400",
+  Ruby: "bg-rose-300",
+  "C#": "bg-indigo-300",
+  "C++": "bg-pink-400",
+  Shell: "bg-lime-300",
+  Astro: "bg-orange-500"
 };
 
 const DEFAULT_LANGUAGE_COLOR = "bg-gray-100";
@@ -26,7 +27,7 @@ function RepoCard({ repo }) {
   const languageColor = LANGUAGE_COLORS[repo.language] ?? DEFAULT_LANGUAGE_COLOR;
 
   return (
-    <article className="p-5 space-y-2 flex flex-col gap-3 rounded-lg border border-zinc-700 bg-white dark:text-gray-300 dark:bg-zinc-800 shadow-md hover:scale-105 hover:border-indigo-500 hover:shadow-lg transition duration-300">
+    <article className="p-5 space-y-2 flex flex-col gap-3 rounded-lg bg-white dark:text-gray-300 dark:bg-zinc-800 shadow-md hover:scale-105 hover:border-indigo-500 hover:shadow-lg transition duration-300">
       <div className="">
         <h3 className="text-lg font-mono font-semibold leading-snug">
           <a

@@ -56,7 +56,7 @@ function MetaListItem({ icon, value, href }) {
         </a>
       ) : (
         <span
-          className={`${isAvailable ? "text-zinc-800 dark:text-zinc-100" : "text-gray-400"}`}>
+          className={`${!isAvailable && "text-gray-500 dark:text-gray-400"}`}>
           {isAvailable ? value : "Not available"}
         </span>
       )}
@@ -70,7 +70,7 @@ function UserProfile({ user, loading, error }) {
   if (error || !user) return null;
 
   return (
-    <article className="p-6 space-y-4 sm:space-y-6 rounded-xl dark:bg-zinc-800">
+    <article className="p-6 space-y-4 sm:space-y-6 rounded-xl bg-white dark:bg-zinc-800 shadow-lg dark:shadow-md">
       <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center">
         <img
           src={user.avatar_url}
@@ -80,11 +80,13 @@ function UserProfile({ user, loading, error }) {
           className="h-32 w-32 rounded-full object-cover shadow-md border-2 border-indigo-500"
         />
         <div className="text-center sm:text-left">
-          <h2 className="mb-2 text-3xl sm:text-4xl font-semibold text-zinc-50">
+          <h2 className="mb-2 text-3xl sm:text-4xl font-semibold dark:text-zinc-50">
             {user.name || user.login}
           </h2>
-          <p className="text-lg font-mono text-indigo-400">@{user.login}</p>
-          <p className="text-gray-600 dark:text-slate-300">
+          <p className="text-lg font-mono text-indigo-400 font-md">
+            &#64;{user.login}
+          </p>
+          <p>
             Joined{" "}
             <time datetime={user.created_at}>
               {formatDate(user.created_at)}
@@ -93,14 +95,14 @@ function UserProfile({ user, loading, error }) {
         </div>
       </div>
       <p
-        className={`sm:text-lg leading-relaxed ${user.bio ? "font-mono" : "italic"}`}>
+        className={`sm:text-lg leading-relaxed ${user.bio ? "font-mono" : "italic text-gray-500 dark:text-gray-400"}`}>
         {user.bio || "This profile has no bio."}
       </p>
-    
+
       <ul
         role="list"
         aria-label="User metadata"
-        className="text-sm sm:text-base flex flex-wrap gap-3.5">
+        className="text-sm sm:text-base flex flex-wrap gap-3.5 text-gray-700 dark:text-slate-200">
         <MetaListItem icon={<FiMapPin />} value={user.location} />
         <MetaListItem
           icon={<FiMail />}
@@ -114,16 +116,16 @@ function UserProfile({ user, loading, error }) {
         />
       </ul>
 
-      <div className="p-4 rounded-md dark:bg-zinc-900">
+      <div className="p-4 rounded-md bg-indigo-50 dark:bg-zinc-900">
         <table className="table-auto w-full border-collapse text-center">
           <caption className="sr-only">
             Key GitHub statistics for user
           </caption>
           <thead>
             <tr>
-              <th className="font-light">Repos</th>
-              <th className="font-light">Followers</th>
-              <th className="font-light">Following</th>
+              <th className="font-normal">Repos</th>
+              <th className="font-normal">Followers</th>
+              <th className="font-normal">Following</th>
             </tr>
           </thead>
           <tbody>
