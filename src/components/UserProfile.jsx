@@ -83,9 +83,13 @@ function UserProfile({ user, loading, error }) {
           <h2 className="mb-2 text-3xl sm:text-4xl font-semibold dark:text-zinc-50">
             {user.name || user.login}
           </h2>
-          <p className="text-lg font-mono text-indigo-400 font-md">
+          <a
+            href={user.html_url}
+            target="_blank"
+            rel="noreferrer nopener"
+            className="mb-2 text-lg font-mono text-indigo-400 font-md rounded-sm hover:underline hover:text-indigo-400 hover:dark:text-indigo-300 focus-visible:outline-2 outline-offset-2 focus-visible:outline-indigo-400">
             &#64;{user.login}
-          </p>
+          </a>
           <p>
             Joined{" "}
             <time datetime={user.created_at}>
