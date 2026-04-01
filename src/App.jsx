@@ -5,22 +5,14 @@ import SearchBar from "./components/SearchBar";
 import UserProfile from "./components/UserProfile";
 import RepoGrid from "./components/RepoGrid";
 
-
-
 function App() {
-  // core state variables
+  // state and logic for simple theme switch/detection
   const [isDark, setIsDark] = useState(
     () => window.matchMedia("(prefers-color-scheme:dark)").matches,
   );
 
-
   useEffect(() => {
-    const root = document.documentElement;
-    if (isDark) {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
+    document.documentElement.classList.toggle("dark", isDark);
   }, [isDark]);
 
   function handleThemeToggle() {
@@ -35,9 +27,12 @@ function App() {
       <main className="mx-auto max-w-3xl py-10 px-4 space-y-8">
         <SearchBar onSearch={search} loading={loading} />
         {error && (
-          <p role="alert" className="mb-4 text-sm text-red-600">
-            {error}
-          </p>
+          <div
+            role="alert"
+            aria-live="assertive"
+            className="py-2 rounded-md text-lg font-medium text-center text-slate-50 bg-red-600">
+            <p className="">{error}</p>
+          </div>
         )}
         <UserProfile user={user} loading={loading} error={error} />
         <RepoGrid repos={repos} loading={loading} />

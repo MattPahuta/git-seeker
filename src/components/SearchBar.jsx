@@ -22,20 +22,20 @@ function SearchBar({ onSearch, loading }) {
         onSubmit={handleSubmit}
         className="flex flex-col sm:flex-row gap-3">
         <label htmlFor="username-input" className="sr-only">
-          GitHub Username
+          Enter a GitHub Username
         </label>
         <input
-          id="username-input"
-          type="text"
-          value={inputValue}
-          disabled={loading}
-          autoComplete="off"
-          autoCorrect="off"
-          autoCapitalize="off"
-          spellCheck="false"
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Enter a GitHub username..."
-          className="px-4 py-2 flex-1 text-base rounded-md placeholder:text-gray-400 placeholder:italic bg-white dark:bg-zinc-800 outline outline-gray-300 dark:outline-zinc-700 -outline-offset-1 focus-visible:outline-2 focus-visible:-outline-offset-2 focus:outline-indigo-600"
+            id="username-input"
+            type="text"
+            value={inputValue}
+            disabled={loading}
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
+            spellCheck="false"
+            onChange={(e) => setInputValue(e.target.value)}
+            placeholder="Enter a GitHub username..."
+            className="px-4 py-2 flex-1 text-base rounded-md placeholder:text-gray-400 placeholder:italic bg-white dark:bg-zinc-800 outline outline-gray-300 dark:outline-zinc-700 -outline-offset-1 focus-visible:outline-2 focus-visible:-outline-offset-2 focus:outline-indigo-600"
         />
         <button
           type="submit"
