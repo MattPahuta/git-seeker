@@ -1,11 +1,6 @@
 import { useState } from "react";
 import { FiSearch } from 'react-icons/fi';
 
-// ToDo: Add React icons, Feather icons (Joy of React ref)
-// ToDo: add magnifying glass to search button 
-// - Below Small screens - magnifying glass only
-// - Small and above - magnifying glass & Search
-
 function SearchBar({ onSearch, loading }) {
   const [inputValue, setInputValue] = useState("");
 

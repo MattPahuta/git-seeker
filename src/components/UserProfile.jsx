@@ -6,7 +6,6 @@ import {
   ensureProtocol,
 } from "../utils/formatters";
 
-
 function MetaListItem({ icon, value, href }) {
   const isAvailable = Boolean(value);
 

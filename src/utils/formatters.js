@@ -1,8 +1,3 @@
-/**
- * Utility functions for handling data from GitHub Api
- */
-
-
 // Format the ISO 8601 date strings from GitHub into human-readable date
 export function formatDate(isoString) {
   if (!isoString) return "Unknown date";

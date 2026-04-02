@@ -3,6 +3,7 @@ function Spinner() {
     <div
       role="status"
       aria-label="Loading user profile"
+      aria-live="polite"
       className="mt-12 flex flex-col items-center gap-4 text-gray-500">
       <svg
         aria-hidden="true"
@@ -24,7 +25,7 @@ function Spinner() {
           d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8h4z"
         />
       </svg>
-      <p className="text-lg">Fetching profile...</p>
+      <p className="text-lg">Loading profile...</p>
     </div>
   );
 }
