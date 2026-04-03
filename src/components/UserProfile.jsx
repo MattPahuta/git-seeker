@@ -1,5 +1,5 @@
 import Spinner from "./Spinner";
-import { FiMapPin, FiLink, FiMail } from "react-icons/fi";
+import { FiMapPin, FiLink, FiTwitter } from "react-icons/fi";
 import {
   formatDate,
   formatCount,
@@ -71,24 +71,30 @@ function UserProfile({ user, loading, error }) {
         className={`sm:text-lg leading-relaxed ${user.bio ? "font-mono" : "italic text-gray-500 dark:text-gray-400"}`}>
         {user.bio || "This profile has no bio."}
       </p>
-
       <ul
         role="list"
         aria-label="User metadata"
         className="text-sm sm:text-base flex flex-wrap gap-3.5 text-gray-700 dark:text-slate-200">
         <MetaListItem icon={<FiMapPin />} value={user.location} />
         <MetaListItem
-          icon={<FiMail />}
-          value={user.email}
-          href={`mailto:${user.email}`}
-        />
-        <MetaListItem
           icon={<FiLink />}
           value={user.blog}
           href={ensureProtocol(user.blog)}
         />
+        <MetaListItem
+          icon={<FiTwitter />}
+          value={
+            user.twitter_username
+              ? `@${user.twitter_username}`
+              : null
+          }
+          href={
+            user.twitter_username
+              ? `https://x.com/${user.twitter_username}`
+              : null
+          }
+        />
       </ul>
-
       <div className="p-4 rounded-md bg-indigo-50 dark:bg-zinc-900">
         <table className="table-auto w-full border-collapse text-center">
           <caption className="sr-only">
