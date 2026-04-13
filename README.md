@@ -8,9 +8,10 @@ A responsive GitHub profile search app built with React and Tailwind CSS, based 
 ## Table of Contents
 
 - [Overview](#overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
+  - [Features](#features)
+  - [Links](#links)
+  - [Tech Stack](#tech-stack)
+  - [Project Structure](#project-structure)
 - [Architecture & Key Decisions](#architecture--key-decisions)
   - [Component Design](#component-design)
   - [State Management](#state-management)
@@ -28,7 +29,7 @@ A responsive GitHub profile search app built with React and Tailwind CSS, based 
 GitSeeker was built as a solution to the associated Frontend Mentor challenge (with updated styling), providing a streamlined utility to search for GitHub user profiles, as well as an opportunity to continue practicing developing with modern React patterns. The app consumes the public [GitHub REST API](https://docs.github.com/en/rest) — no authentication required.
 
 
-## Features
+### Features
 
 - Search any public GitHub profile by username
 - Display profile details: avatar, name, bio, join date, location, website, email
@@ -37,8 +38,12 @@ GitSeeker was built as a solution to the associated Frontend Mentor challenge (w
 - Light and dark theme toggle
 - Navigable by keyboard with screen reader support throughout
 
+### Links
 
-## Tech Stack
+- [live demo site](https://git-seeker.netlify.app/)
+
+
+### Tech Stack
 
 | Tool | Purpose |
 |---|---|
@@ -51,7 +56,7 @@ GitSeeker was built as a solution to the associated Frontend Mentor challenge (w
 No external component libraries or state management packages used. UI built from scratch with inspiration from Frontend Mentor design. State management and data handling using native React tools and modern JavaScript.
 
 
-## Project Structure
+### Project Structure
 
 ```
 src/
