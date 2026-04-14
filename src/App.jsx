@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useGitHubSearch } from "./hooks/useGitHubSearch";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import SearchBar from "./components/SearchBar";
 import UserProfile from "./components/UserProfile";
 import RepoGrid from "./components/RepoGrid";
@@ -22,9 +23,9 @@ function App() {
   const { user, repos, loading, error, search } = useGitHubSearch();
 
   return (
-    <div className="min-h-screen text-zinc-900 bg-indigo-50 dark:bg-zinc-900 dark:text-zinc-100">
+    <>
       <Header isDark={isDark} onToggle={handleThemeToggle} />
-      <main className="mx-auto max-w-3xl py-10 px-4 space-y-8">
+      <main className="w-full mx-auto max-w-3xl py-10 px-4 space-y-8">
         <SearchBar onSearch={search} loading={loading} />
         {error && (
           <div
@@ -37,7 +38,8 @@ function App() {
         <UserProfile user={user} loading={loading} error={error} />
         <RepoGrid repos={repos} loading={loading} />
       </main>
-    </div>
+      <Footer />
+    </>
   );
 }
 
