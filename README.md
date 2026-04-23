@@ -2,7 +2,7 @@
 
 A responsive GitHub profile search app built with React and Tailwind CSS, based on the [Frontend Mentor GitHub user search app challenge](https://www.frontendmentor.io/challenges/github-user-search-app-Q09YOgaH6). Search GitHub by username to view profile details and recent repositories.
 
-![GitSeeker screenshot](./src/assets/gitSeeker_readme.jpg)
+![GitSeeker screenshot](./gitSeeker_readme.jpg)
 
 
 ## Table of Contents
